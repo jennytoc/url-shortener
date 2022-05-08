@@ -30,6 +30,6 @@ def encode(request, link_id):
 def decode(request, link_id):
     l = Link.objects.get(id=link_id)
     data = {
-        "link_details": l.original_url
+        "original_url": l.original_url
     }
     return JsonResponse(data)
