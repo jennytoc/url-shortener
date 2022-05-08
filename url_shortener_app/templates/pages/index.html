@@ -5,12 +5,13 @@ Encode URL
 {% endblock %}
 
 {% block main-content %}
-<h1>URL Shortener</h1>
-<form method="POST" id='url-form'>
-  {% csrf_token %}
-  <input type="text" id="url" name="url" placeholder="Enter your URL here" />
-  <br />
-  <button type="submit">Submit</button>
-</form>
-<div id="shortened_url"></div>
+<div id="form-cont">
+  <h1>URL Shortener</h1>
+  <form method="POST" id='url-form'>
+    {% csrf_token %}
+    <input type="text" class="form-control" id="url" name="url" placeholder="Enter your URL here" />
+    <br />
+    <button class="btn btn-secondary" type="submit">Submit</button>
+  </form>
+</div>
 {% endblock %}
