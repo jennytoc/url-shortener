@@ -6,11 +6,11 @@ There are two endpoints:
 * `/decode/<link-id>`: replacing `<url-id` with the ID of the link you want to decode will give a JSON response containing the original url of the shortened version.
 
 ## Setup
-1. Clone this repo into your local machine
+1. Clone this repo into your local machine.
 ```
 git clone https://github.com/jennytoc/url-shortener.git
 ```
-2. Create a virtual environment
+2. Create a virtual environment.
 ```
 python -m venv .venv
 ```
@@ -18,7 +18,7 @@ python -m venv .venv
 ```
 source .venv/bin/activate
 ```
-4. Install requirements.txt
+4. Install requirements.txt.
 ```
 pip install -r requirements.txt
 ```
@@ -31,15 +31,19 @@ createdb url_proj_db
 ```
 sudo service postgresql start
 ```
-6. Migrate the models into your database
+6. Migrate the models into your database.
 ```
 python3 manage.py makemigrations
 ```
-7. Run the migrate command
+7. Run the migrate command.
 ```
 python3 manage.py migrate
 ```
-8. Finally, startup the server
+8. Finally, startup the server.
 ```
 python3 manage.py runserver
+```
+9. Enter this into your browser to take you to the application.
+```
+http://127.0.0.1:8000/
 ```
