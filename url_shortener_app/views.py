@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect, reverse
+from django.http import JsonResponse
 from django.forms import ValidationError
 from .models import *
 import pyshorteners
 
-def encode(request):
+def index(request):
     data = {}
     if request.method == "POST":
         try:
@@ -13,20 +14,22 @@ def encode(request):
             l.short_url = s.tinyurl.short(l.original_url)
             l.full_clean()
             l.save()
-            return redirect(reverse("new_url", args=(l.id,)))
+            return redirect(reverse("encode", args=(l.id,)))
 
         except ValidationError as v:
             data["error"] = v.message_dict
-    return render(request, 'pages/encode.html', data)
+    return render(request, 'pages/index.html', data)
 
-def new_url(request, link_id):
+def encode(request, link_id):
+    l = Link.objects.get(id=link_id)
     data = {
-        "link_details": Link.objects.get(id=link_id)
+        "short_url" : l.short_url
     }
-    return render(request, 'pages/new_url.html', data)
+    return JsonResponse(data)
 
 def decode(request, link_id):
+    l = Link.objects.get(id=link_id)
     data = {
-        "link_details": Link.objects.get(id=link_id)
+        "link_details": l.original_url
     }
-    return render(request)
+    return JsonResponse(data)
