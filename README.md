@@ -3,7 +3,7 @@ This application is a simple, minimalistic URL shortener that utilizes a package
 
 There are two endpoints:
 * `/encode/<link-id>`: After clicking submit, the page will automatically redirect you to the JSON page with the ID of the link in the URL.
-* `/decode/<link-id>`: replacing `<url-id` with the ID of the link you want to decode will give a JSON response containing the original url of the shortened version.
+* `/decode/<link-id>`: replacing `<link-id>` with the ID of the link you want to decode will give a JSON response containing the original url of the shortened version.
 
 ## Setup
 1. Clone this repo into your local machine.
